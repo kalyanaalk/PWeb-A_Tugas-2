@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">	
+</head>
+
+<style>
+
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    :root{
+        --heading: 'Montserrat', sans-serif;
+    }
+
+    body{
+        font-family: 'Raleway', sans-serif;
+        background: #fff;
+    }
+
+    img{
+        width: 100%;
+    }
+    ul{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+
+    hr{
+        width: 95vw;
+        margin: 0 auto;
+    }
+
+    .top-head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        background: #252525;
+        color: #fff;
+        padding: 20px 20px;
+    }
+
+    .top-head .fas{
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .times-btn{
+        display: none;
+    }
+
+    .nav-bar{
+        background: #333;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .show-nav{
+        height: auto;
+    }
+
+    .nav-bar ul li{
+        text-align: center;
+        display: block;
+        padding: 15px 0;
+        transition: all 1s ease-in-out;
+    }
+
+    .nav-bar ul li:hover{
+        background: #0e0e0e;
+    }
+
+    .nav-bar ul li a{
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .nav-bar ul li a:hover{
+        text-decoration: underline;
+    }
+
+    .social-icons{
+        display: none;
+    }
+
+    .banner{
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 30px 0;
+        margin-top: 8px;
+        margin: 20px;
+        background: #333;
+    }
+
+    .banner-main-content{
+        padding: 0 2rem;
+        line-height: 1.7;
+    }
+
+    .banner-main-content h2{
+        font-size: 2rem;
+        font-family: var(--heading);
+    }
+
+    .banner-main-content h3{
+        padding: 1rem 0;
+    }
+
+    button{
+        border: none;
+        background: #252525;
+        font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 1s ease;
+    }
+
+    button a{
+        color: #f3f3f3f3;
+        transition: color 1s ease;
+    }
+
+    button:hover{
+        background: #fff;
+    }
+
+    button:hover a{
+        color: #0d0a0b;
+    }
+
+
+    .current-news-head{
+        background: #fff;
+        padding: 20px;
+        font-size: 12px;
+        margin: 20px 0;
+    }
+
+    .current-news-head h3{
+        padding: 6px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .current-news-head h3:hover::before{
+        content: ">> ";
+        position: absolute;
+        left: -12px;
+    }
+
+    .current-news-head span{
+        display: block;
+        font-family: var(--heading);
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .hot-topic{
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        padding: 12px;
+        height: 431px;
+        
+    }
+
+    .hot-topic img{
+        display: block;
+        padding-top: 20px;
+    }
+
+    .hot-topic-content{
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        line-height: 1.3;
+        color: #f3f3f3;
+        margin: 20px;
+        background: #252525;
+    }
+
+    .hot-topic h2{
+        padding: 12px 10px;
+        font-size: 18px;
+        text-shadow: 0 0 2px #000;
+    }
+
+    .hot-topic p{
+        padding: 10px 0;
+        font-size: 15px;
+        text-shadow: 0 0 2px #000;
+        padding: 12px 10px;
+    }
+
+    .hot-topic-content a{
+        display: block;
+        width: 95px;
+        text-align: center;
+        font-size: 14px;
+        margin: 5px 5px 5px 5px;
+    }
+
+    .hot-topic-content a:hover{
+        text-decoration: underline;
+    }
+
+    main a,
+    .subscribe a{
+        padding: 15px 0;
+        display: block;
+        transition: all 0.5s;
+    }
+
+    main a,
+    .subscribe a{
+        transition: padding-left 0.5s;
+    }
+
+    main a:hover span{
+        padding-left: 5px;
+    }
+
+    main a:hover{
+        color: #413588;
+    }
+
+    
+    .subscribe a:hover{
+        color: #afafaf;
+    }
+
+    /* main container left */
+
+    .main-container-left{
+        padding: 30px 10px;
+        width: 500px;
+    }
+
+    .main-container-left > h2{
+        padding: 15px 0 15px 30px;
+    }
+
+    .main-container-left h3{
+        padding: 10px 0;
+        font-size: 18px;
+        font-family: var(--heading);
+    }
+
+    .main-container-left p{
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    .main-container-left article{
+        padding: 10px;
+    }
+
+    .container-top-left{
+        background: #f3f3f3;
+        margin: 15px 30px;
+        padding: 15px 30px;
+    }
+
+    .container-bottom-left{
+        background: #f3f3f3;
+        margin: 15px 30px;
+        padding: 15px 30px;
+    }
+
+    /*** main container right */
+
+    .main-container-right{
+        padding: 30px 10px;
+        width: 800px;
+    }
+
+    .main-container-right > h2{
+        padding: 15px 0 15px 30px;
+    }
+
+    .main-container-right article{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        padding: 15px 0;
+        border-bottom: 1px solid #413588;
+    }
+
+    .main-container-right article:last-child{
+        border-bottom: none;
+    }
+
+    .main-container-right img{
+        width: 100px;
+        height: 100px;
+        align-self: center;
+    }
+
+    .main-container-right h4{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 12px;
+        align-self: center;
+        color: #413588;
+    }
+
+    .main-container-right article h2{
+        font-size: 18px;
+        padding: 10px 0;
+        font-family: var(--heading);
+    }
+
+    .main-container-right article p{
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    .main-container-right article div{
+        margin-right: 10px;
+    }
+
+
+    /****** footer *****/
+
+    footer{
+        background: #252525;
+        color: #f3f3f3;
+        padding: 30px;
+    }
+
+    footer h2{
+        padding: 10px 0;
+    }
+
+    footer p{
+        padding: 10px 0;
+        line-height: 1.3;
+    }
+
+    .footer-left, 
+    .footer-center,
+    .footer-right{
+        margin: 0 20px;
+        width: 33%;
+    }
+
+    footer > p{
+        text-align: center;
+        opacity: 0.8;
+        margin-top: 20px;
+    }
+
+    .footer-right i{
+        font-size: 1.8rem;
+        color: #808080;
+    }
+
+    .footer-right input{
+        font-size: 18px;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: #808080;
+        padding-right: 10px;
+        width: 100%;
+    }
+
+    .footer-right div{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 200px;
+        padding: 10px 0;
+        border-bottom: 1.6px solid #808080;
+    }
+
+    .subscribe a{
+        border: #000;
+        border-width: 2px;
+        padding: 5px;
+    }
+
+
+
+    @media(max-width: 460px){
+        .hot-topic-content h2{
+            font-size: 16px;
+        }
+
+        .main-container-right article{
+            display: block;
+        }
+
+        .main-container-right article img{
+            display: none;
+        }
+
+
+    }
+
+    @media(max-width: 500px){
+        .main-container-right article{
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .main-container-right article h4{
+            grid-row: 1/2;
+            grid-column: 1/2;
+            align-self: flex-start;
+        }
+
+        .main-container-right article img{
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+
+        .main-container-right article div{
+            grid-row: 1/3;
+            grid-column: 2/3;
+        }
+    }
+
+
+    @media(min-width: 768px){
+        .banner-sub-content{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .container-bottom-left{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+    }
+
+
+    @media(min-width: 800px){
+        /* nav */
+        .ham-btn, .times-btn{
+            display: none!important;
+        }
+
+        .navigation-container{
+            display: flex;
+            background: #252525;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-head{
+            flex: 0 0 15%;
+        }
+
+        .nav-bar{
+            flex: 1 0 auto;
+            height: 100%;
+            background: transparent;
+        }
+
+        .nav-bar nav ul{
+            display: flex;
+            justify-content: center;
+        }
+        .nav-bar nav ul li{
+            padding-right: 30px;
+        }
+
+        .nav-bar nav ul li:hover{
+            background: none;
+        }
+
+        /* social icons */
+        .social-icons{
+            flex: 0 1 30%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .social-icons .fab{
+            color: #fff;
+            font-size: 2rem;
+        }
+        .social-icons ul{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .social-icons ul li{
+            padding: 20px;
+        }
+
+        .footer-container{
+            display: flex;
+        }
+
+        .footer-right,
+        .footer-left{
+            flex: 1;
+        }
+    }
+
+    @media(min-width: 992px){
+        main{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(min-width: 1080px){
+        .banner{
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+
+    .banner-main-content:after{
+        content: "";
+        animation: slide 10s ease infinite;
+    }
+
+    @keyframes slide {
+        
+    }
+
+</style>
+<body>
+
+    <header>
+        <div class = "navigation-container">
+            <div class = "top-head">
+                <h2>TMI TODAY</h2>
+            </div>
+
+            <div class = "nav-bar" id = "nav-bar">
+                <nav>
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li><a href="#Banner">hot topics</a></li>
+                        <li><a href="#Top">top stories</a></li>
+                        <li><a href="#Latest">latest stories</a></li>
+                        <li><a href="#Contact">contact</a></li>
+                        <li><a href="#"><img src="images/search.png" alt="search" style="width:20px;height:20px;"></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class = "banner" id="Banner">
+        <div class = "banner-main-content">
+            <h2>Get today's Too<br>Much Information<br>From Kos PakDar</h2>
+        </div>
+
+        <div class = "banner-sub-content">
+            <div class = "hot-topic">
+                
+
+                <div class = "hot-topic-content">
+                    <img src = "images/hot-topic-1.jpeg" alt = "" style="width:300x;height:161px;">
+                    <h2>Stress AJK, Tiga Remaja Bonding Sampai Tengah Malam</h2>
+                    <p>Setelah membahas penugasan 3 AJK lewat discord (27/2/23), tiga remaja ini diduga stress dan menumpahkan kestressan mereka dengan cara bonding dan deep talk via zoom...</p>
+                    <button>
+                        <a href = "#">Read More</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class = "hot-topic">
+                <div class = "hot-topic-content">
+                    <img src = "images/hot-topic-2.jpeg" alt = "" style="width:300x;height:161px;">
+                    <h2>Melanie Pindah Kos ke Dekat Kos PakDar</h2>
+                    <p>Siang bolong (27/2/23) Melanie Sayyidina Sabrina Refman dengan sumringah menyatakan bahwa ia mendapatkan kos baru di dekat kos Pak Dar dan sepertinya akan semakin sering menumpang...</p>
+                    <button>
+                        <a href = "#">Read More</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+
+    <main>
+        <section class = "main-container-left">
+            <h2 id="Top">Top Stories</h2>
+            <div class = "container-top-left">
+                <article>
+                    <img src = "images/photo2.jpg" alt = "" style="width:300x;height:161px;">
+                    <div>
+                        <h3>Iri Dengki, Mahasiswi Blender HP</h3>
+
+                        <p>Seorang mahasiswi memblender ponselnya setelah melihat snapgram uwu dari Tsabita Putri Ramadhany yang berisikan konten prank pacar...</p>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class = "container-bottom-left">
+                <article>
+                    <img src = "images/photo.png">
+                    <div>
+                        <h3>Berapa Jam Iky Tidur Semalam?</h3>
+                        <p>Saat ditemui di kos Pak Dar malam ini (2/27/23) kantong mata Iky terpantau sangat hitam. "Mungkin 3 jam," jawab Iky saat ditanya soal lama tidurnya semalam...</p>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                </article>
+
+                <article>
+                    <img src = "images/photo.png">
+                    <div>
+                        <h3>Banjir dan Akibatnya pada Knalpot Motor</h3>
+                        <p>Banjir di keputih lagi-lagi memakan korban. Fadilla, seorang mahasiswi kere, perlu merogoh kocek sebanyak 650 ribu rupiah untuk memperbaiki motornya...</p>
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class = "main-container-right">
+            <h2 id="Latest">Latest Stories</h2>
+            
+            <article>
+                <h4>new</h4>
+                <div>
+                    <h2>Kacamata Agar Terlihat Lebih Pintar? Ini Kata Mbak Luna</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                    <a href = "#">Read More <span>>></span></a>
+                </div>
+                <img src = "images/photo.png">
+            </article>
+
+            <article>
+                <h4>new</h4>
+                <div>
+                    <h2>Siang Baweng, Malam Nadira</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                    <a href = "#">Read More <span>>></span></a>
+                </div>
+                <img src = "images/photo.png">
+            </article>
+
+            <article>
+                <h4>new</h4>
+                <div>
+                    <h2>Tips Saat Lelah Menjalani Hidup dari Salsabila Fatma Aripa, No. 4 Mencengangkan</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                    <a href = "#">Read More <span>>></span></a>
+                </div>
+                <img src = "images/photo.png">
+            </article>
+
+            <article>
+                <h4>new</h4>
+                <div>
+                    <h2>Rule Telah Move On dari Hype Boy ke Ditto?</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                    <a href = "#">Read More <span>>></span></a>
+                </div>
+                <img src = "images/photo.png">
+            </article>
+
+            <article>
+                <h4>new</h4>
+                <div>
+                    <h2>Ada Ulat di Bunga Pemberian Pacar, Yusna Meragukan Cinta Sang Kekasih</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                    <a href = "#">Read More <span>>></span></a>
+                </div>
+                <img src = "images/photo.png">
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class = "footer-container">
+            <div class = "footer-left">
+                <section class="about">
+					<h2 id="Contact">About</h2>
+					<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.</p>
+					<div class="social-icons-footer">
+						<a href="https://www.facebook.com/kalyana.alkanza"><i class="fab fa-facebook"></i></a>
+						<a href="https://twitter.com/?lang=en-id"><i class="fab fa-twitter-square"></i></a>
+						<a href="mailto:kalyanaalkanza@gmail.com"><i class="fas fa-envelope"></i></a>
+						<a href="https://instagram.com/kalyanaalk/"><i class="fab fa-instagram"></i></a>
+						<a href="https://youtube.com/"><i class="fab fa-youtube-square"></i></a>
+						<a href="https://pinterest.com/"><i class="fab fa-pinterest-square"></i></a>
+						<a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a>
+					</div>
+				</section>    
+            </div>
+
+            <div class = "footer-center">
+                <section class="subscribe">
+					<h2>Subscribe Now</h2>
+					<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Etiam porta sem.</p>
+					<a href = "#">Get Plans</a>
+				</section>    
+            </div>
+
+            <div class = "footer-right">
+                <h2>Ask Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, autem!</p>
+
+                <div>
+                    
+                    <input type = "text" placeholder = "Tell us what you think">
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</bod>
+</html>y
